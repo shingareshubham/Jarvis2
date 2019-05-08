@@ -16,6 +16,7 @@ import config
 # brew install portaudio
 # pip install pyaudio
 
+# set Your machine voice 
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 #print(voices[0].id)
@@ -67,7 +68,7 @@ def sendEmail(to, content):
 if __name__ == "__main__":
     wishMe()
     #print('Welcome')
-    #query = 'email to harry'
+    #query = 'email to'
     while True:
         query = takeComand().lower()
         if 'hello' in query:
@@ -101,23 +102,34 @@ if __name__ == "__main__":
             speak(f"Sir, the time is {strTime}")
 
         elif 'email to' in query:
-            try:
-                speak("What should I say?")
-                content = takeCommand()
-                #content = 'Hi'
-                to = "ijreat@gmail.com"
-                sendEmail(to, content)
-                speak("Email has been sent!")
-            except Exception as e:
-                print(e)
-                speak("I am not able to send this email")
+            # You can import your google contact
+            if 'shubham' in query:
+                try:
+                    speak("What should I say?")
+                    content = takeCommand()
+                    #content = 'Hi'
+                    to = "shubham@gmail.com"
+                    sendEmail(to, content)
+                    speak("Email has been sent!")
+                except Exception as e:
+                    print(e)
+                    speak("I am not able to send this email, sorry")
+            elif 'Ram' in query:
+                 try:
+                    speak("What should I say?")
+                    content = takeCommand()
+                    #content = 'Hi'
+                    to = "ram@gmail.com"
+                    sendEmail(to, content)
+                    speak("Email has been sent!")
+                except Exception as e:
+                    print(e)
+                    speak("I am not able to send this email, sorry")
 
         elif 'goodbye' in query:
             break
 
-        #else:
-            #speak('I dont understand please say it again')
-
+   
 
 
 
